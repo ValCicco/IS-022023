@@ -1,0 +1,14 @@
+@startuml Baseball
+class Equipo_Baseball{
+
+}
+class Jugador{
+
+}
+class Estadio{
+ + no_entiendo_lo_del_homeclub
+}
+Equipo_Baseball o-- Jugador
+
+
+@enduml

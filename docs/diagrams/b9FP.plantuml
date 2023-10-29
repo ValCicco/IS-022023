@@ -1,0 +1,22 @@
+@startuml FP 
+class FP{
+
+}
+class Operandos{
+
+}
+class UFC{
+
+}
+class TCF{
+
+}
+class Fi{
+
+}
+FP o-- "2" Operandos
+Operandos <|-- UFC
+Operandos <|-- TCF
+TCF ..> Fi
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml Disco_Duro
+class Disco_Duro{
+
+}
+class Pistas{
+
+}
+class Sectores{
+
+}
+Disco_Duro o-- Pistas
+Pistas o-- Sectores
+
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml Comite
+class Comite{
+
+}
+class Persona{
+
+}
+class Coordinador{
+
+}
+Persona <|-- Coordinador
+Comite "1" -- "1.*   "   Coordinador
+Comite "2.*" -- "0.*" Persona
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml Personas
+class Personas{
+    - nombre : string 
+    - numero_telefono : int 
+    - direccion : string 
+
+}
+class Estudiantes{
+    - carrera : string 
+    - semestre : int 
+
+}
+class Profesores{
+    + curso : string 
+    + años_enseñando : int
+}
+class Empleados{
+    + Trabajar()
+
+}
+Personas <|-- Empleados
+Personas <|-- Estudiantes
+Empleados <|-- Profesores
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml Triangulo
+class Poligono{
+    + num_lados:int 
+    + area : int
+    + perimetro : int
+    +calcular_area()
+    +calcular_perimetro()
+}
+class Triangulo{
+    + calcular_hipotenusa()
+    +calcular_cateto()
+
+}
+class Lados{
+    + longitud : int
+    
+}
+Poligono <|-- Triangulo
+Triangulo o-- "3" Lados
+
+@enduml

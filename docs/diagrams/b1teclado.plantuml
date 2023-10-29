@@ -1,0 +1,11 @@
+@startuml b1-Teclado
+Class Teclado{
+    + presionar_tecla()
+}
+Class Teclas{
+    + letras : string
+    + numeros : int
+    
+}
+Teclado*-- "105" Teclas
+@enduml

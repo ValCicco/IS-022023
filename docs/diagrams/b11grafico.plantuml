@@ -1,0 +1,21 @@
+@startuml Documento grafico
+class Documento_grafico{
+
+}
+class Hojas{
+
+}
+class Dibujo{
+
+}
+class texto{
+
+}
+class figura_2D{
+
+}
+class grupo{
+    +despues_lo_termino
+}
+
+@enduml

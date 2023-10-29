@@ -1,0 +1,27 @@
+@startuml Trabajos de investigacion
+class Trabajo_investigacion{
+
+}
+class Profesor{
+
+}
+class TEG{
+
+}
+class TGM{
+
+}
+class Estudiante_pregrado{
+
+}
+class Estudiante_postgrado{
+
+}
+Trabajo_investigacion <|-- TEG
+Trabajo_investigacion <|-- TGM
+Trabajo_investigacion "1..2" -- "1.*" Profesor : dirigido
+TEG "0..1" -- Estudiante_postgrado
+TGM "1..2" -- Estudiante_pregrado
+
+
+@enduml

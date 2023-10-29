@@ -1,0 +1,10 @@
+@startuml D
+object "(x + y/2) / (x/3 + y) : Expresion" as o1
+object ": Termino" as o2
+
+o1 o-- o2 : (x + y/2)
+o1 o-- o2 : (x/3 + y)
+o2 <|-- o1
+
+
+@enduml

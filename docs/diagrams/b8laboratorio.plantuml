@@ -1,0 +1,20 @@
+@startuml Laboratorio
+class Laboratorio{
+
+}
+class Laboratorio_nuclear{
+
+}
+class Equipos{
+
+}
+class Equipos_nucleares{
+
+}
+
+Laboratorio <|-- Laboratorio_nuclear
+Equipos <|-- Equipos_nucleares
+Laboratorio_nuclear "1.*" -- "1" Equipos_nucleares
+Laboratorio "1.*" -- "*" Equipos
+
+@enduml
