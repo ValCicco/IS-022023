@@ -1,0 +1,51 @@
+@startuml Reto 04
+
+object "VZLA :Equipo_voleyball" as o3{
+    Nombre = Venezuela voleyball team
+    Registro = 50
+}
+object "Capitan :Jugador" as o1{
+    Telefono = 4141158477
+    Nombre = Alexander 
+    Direccion = Venezuela
+    Numero = 7
+    Posicion = Bloqueador
+}
+object " :Entrenador" as o2{
+    Telefono = 4145567843
+    Nombre = Jose 
+    Direccion = Venezuela
+    Nivel_acreditacion = Institucional
+    Num_años_experiencia = 5
+}
+object "VZLA vs COL :Juegos" as o4{
+    Localidad = Panamericanos, Chile 
+    Puntuacion = 4-0
+}
+o3 -left- o1
+o3 -right- o2
+o3 -- o4
+
+object "COL :Equipo_voleyball" as o5{
+    Nombre = Colombia voleyball team
+    Registro = 48
+}
+object "Capitan :Jugador" as o6{
+    Telefono = 4241578894
+    Nombre = Jesus 
+    Direccion = Colombia
+    Numero = 14
+    Posicion = Rematador
+}
+object " :Entrenador" as o7{
+    Telefono = 4246687943
+    Nombre = Daniel 
+    Direccion = Colombia
+    Nivel_acreditacion = Institucional
+    Num_años_experiencia = 8
+}
+o5 -left- o6
+o5 -right- o7
+o4 -down- o5
+
+@enduml

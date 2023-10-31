@@ -15,7 +15,23 @@ class figura_2D{
 
 }
 class grupo{
-    +despues_lo_termino
+    
 }
+class circulo{
+
+}
+class cuadrado{
+
+}
+
+Documento_grafico *-- Hojas
+Dibujo -- Hojas
+Dibujo <|-- texto
+Dibujo <|-- figura_2D
+Dibujo <|-- grupo
+grupo "2..*" o-- Dibujo
+figura_2D <|-- circulo
+figura_2D <|-- cuadrado
+
 
 @enduml

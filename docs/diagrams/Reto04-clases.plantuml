@@ -1,0 +1,32 @@
+@startuml Reto04
+class Equipo_voleyball{
+    + Nombre : string 
+    + Registro : int 
+}
+class Persona{
+    + Telefono : int
+    + Nombre : string
+    # Direccion : string 
+}
+class Entrenador{
+    + Nivel_acreditacion : int
+    + Num_años_experiencia : int
+
+}
+class Jugador{
+    + Numero : int 
+    + Posicion : string 
+
+}
+class Juegos{
+    + Localidad : string 
+    + Puntuacion : int
+
+}
+Equipo_voleyball "0.1" o-- "0.*" Entrenador
+Equipo_voleyball "6..20" o-up- Jugador : tiene
+Persona <|-- Entrenador
+Persona <|-- Jugador
+Juegos "1..*" *-- Equipo_voleyball : compite
+
+@enduml

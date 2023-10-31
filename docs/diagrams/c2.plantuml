@@ -2,16 +2,16 @@
 object "T2:Poligono" as o1
 object "T3:Poligono" as o2
 object ":Punto" as o3
-o3 : cord_x=2
-o3 : cord_y=2
+o3 : cord_x=3
+o3 : cord_y=3
 object ":Punto" as o4
 object ":Punto" as o5
 object ":Punto" as o6
 object ":Punto" as o7
 o4 : cord_x=1
 o4 : cord_y=1
-o5 : cord_x=3
-o5 : cord_y=3
+o5 : cord_x=2
+o5 : cord_y=2
 o6 : cord_x=4
 o6 : cord_y=4
 o7 : cord_x=5

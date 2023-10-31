@@ -6,9 +6,9 @@ class Jugador{
 
 }
 class Estadio{
- + no_entiendo_lo_del_homeclub
+ 
 }
 Equipo_Baseball o-- Jugador
-
+Equipo_Baseball -right- Estadio : Homeclub
 
 @enduml

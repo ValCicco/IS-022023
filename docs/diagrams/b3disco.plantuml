@@ -8,8 +8,8 @@ class Pistas{
 class Sectores{
 
 }
-Disco_Duro o-- Pistas
-Pistas o-- Sectores
+Disco_Duro *-- Pistas
+Pistas *-- Sectores
 
 
 @enduml

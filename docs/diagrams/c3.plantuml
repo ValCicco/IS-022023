@@ -1,5 +1,5 @@
 @startuml C3
-object "T4:Poligono" as o1
+object "C4:Poligono" as o1
 object ":Punto" as o3
 o3 : cord_x=2
 o3 : cord_y=2

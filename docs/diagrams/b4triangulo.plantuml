@@ -16,6 +16,6 @@ class Lados{
     
 }
 Poligono <|-- Triangulo
-Triangulo o-- "3" Lados
+Triangulo *-- "3" Lados
 
 @enduml

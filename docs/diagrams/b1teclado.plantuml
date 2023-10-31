@@ -5,7 +5,8 @@ Class Teclado{
 Class Teclas{
     + letras : string
     + numeros : int
+    + simbolos : string
     
 }
-Teclado*-- "105" Teclas
+Teclado *--  Teclas
 @enduml
