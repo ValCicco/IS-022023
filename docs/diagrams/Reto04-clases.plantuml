@@ -27,6 +27,5 @@ Equipo_voleyball "0.1" o-- "0.*" Entrenador
 Equipo_voleyball "6..20" o-up- Jugador : tiene
 Persona <|-- Entrenador
 Persona <|-- Jugador
-Juegos "1..*" *-- Equipo_voleyball : compite
-
+Equipo_voleyball *-- "2" Juegos : compite
 @enduml
