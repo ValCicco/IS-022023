@@ -22,9 +22,9 @@ object "VZLA vs COL :Juegos" as o4{
     Localidad = Panamericanos, Chile 
     Puntuacion = 4-0
 }
-o3 -left- o1
-o3 -right- o2
-o3 -- o4
+o3 o-left- o1
+o3 o-right- o2
+o4 -up-* o3
 
 object "COL :Equipo_voleyball" as o5{
     Nombre = Colombia voleyball team
@@ -44,8 +44,8 @@ object " :Entrenador" as o7{
     Nivel_acreditacion = Institucional
     Num_años_experiencia = 8
 }
-o5 -left- o6
-o5 -right- o7
-o4 -down- o5
+o5 o-left- o6
+o5 o-right- o7
+o4 -down-* o5
 
 @enduml
