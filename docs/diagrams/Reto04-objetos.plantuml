@@ -1,10 +1,10 @@
-@startuml Reto 04
+@startuml Reto04-objetos 
 
 object "VZLA :Equipo_voleyball" as o3{
     Nombre = Venezuela voleyball team
     Registro = 50
 }
-object "Capitan :Jugador" as o1{
+object " :Jugador" as o1{
     Telefono = 4141158477
     Nombre = Alexander 
     Direccion = Venezuela
@@ -30,7 +30,7 @@ object "COL :Equipo_voleyball" as o5{
     Nombre = Colombia voleyball team
     Registro = 48
 }
-object "Capitan :Jugador" as o6{
+object " :Capitan" as o6{
     Telefono = 4241578894
     Nombre = Jesus 
     Direccion = Colombia

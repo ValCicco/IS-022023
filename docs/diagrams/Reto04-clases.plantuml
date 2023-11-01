@@ -1,4 +1,4 @@
-@startuml Reto04
+@startuml Reto04-clases
 class Equipo_voleyball{
     + Nombre : string 
     + Registro : int 
@@ -23,9 +23,15 @@ class Juegos{
     + Puntuacion : int
 
 }
+class Capitan{
+
+}
 Equipo_voleyball "0.1" o-- "0.*" Entrenador
 Equipo_voleyball "6..20" o-up- Jugador : tiene
 Persona <|-- Entrenador
 Persona <|-- Jugador
 Equipo_voleyball *-- "2" Juegos : compite
+Jugador <|-- Capitan
+Equipo_voleyball -- Capitan
+
 @enduml
