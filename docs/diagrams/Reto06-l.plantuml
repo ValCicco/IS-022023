@@ -1,0 +1,15 @@
+@startuml Diagrama de estado
+
+
+[*] --> IniciandoCompra : entrar sitio de compras
+IniciandoCompra --> GenerandoPedido : Pedir producto
+GenerandoPedido --> ProcesandoPago : Cobrar
+ProcesandoPago --> ProcesandoPago : Validar pago
+ProcesandoPago --> Enviando : Enviar producto
+Enviando -r-> Recibiendo : tipo: urgente
+Enviando -r-> Recibiendo : tipo: normal
+Recibiendo --> Recibiendo : dar cerveza a los transportistas
+Recibiendo --> Recibiendo : cliente satisfecho
+Recibiendo --> [*] : Producto y factura recibido
+
+@enduml

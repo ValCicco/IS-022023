@@ -1,0 +1,38 @@
+@startuml Diagrama de comunicacion
+skinparam noteBackgroundColor transparent
+skinparam noteBorderColor transparent
+hide members
+object ":CatalogoProducto" as catalogo
+object ":Registro" as registro
+object "venta :Venta" as venta
+object "listaVenta :List" as list 
+object ":LineaVenta" as linea
+
+note right of registro
+   : introducirArticulo(ArticuloID, cant)
+end note  
+
+registro --> catalogo
+note on link
+   1: espec = getEspecificacion(id)
+end note
+
+registro --> venta 
+note on link
+   2: CrearLineaVenta(espec, cant)
+end note
+
+venta --> linea
+note on link
+    3: new LineaVenta(espec,cant)
+end note
+
+venta --> list
+note on link
+    4: añadir(LineaVenta)
+end note
+
+
+
+
+@enduml
