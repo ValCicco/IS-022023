@@ -1,16 +1,20 @@
+import java.util.Scanner;
+
 public class practica07_a {
 
     public static void main(String[] args) throws Exception {
-        int num=7;
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Ingrese el tamanio del arreglo");
+        int num= sc.nextInt();
         int[] array = new int[num];
-        array[0]=0;
-        array[1]=2;
-        array[2]=5;
-        array[3]=7;
-        array[4]=8;
-        array[5]=3;
-        array[6]=1;
-        int z=3, i=0;
+        int j=0;
+        while(j<num){
+            System.out.println("Introduzca el numero para la posicion "+(j+1));
+            array[j]=sc.nextInt();
+            j++;
+        }
+        System.out.println("Ingrese el numero que desea buscar");
+        int z=sc.nextInt(), i=0;
 
         while(i<num){
             if(array[i]==z){
@@ -18,7 +22,11 @@ public class practica07_a {
                 return;
             }
             i++;
+            if(i+1==num){
+                System.out.println("El numero no se encuentra en el arreglo");
+            }
         }
+
     }
 
 }
