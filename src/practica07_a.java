@@ -14,14 +14,13 @@ public class practica07_a {
             j++;
         }
         System.out.println("Ingrese el numero que desea buscar");
-        int z=sc.nextInt(), i=0;
+        int z=sc.nextInt();
 
-        while(i<num){
+        for(int i=0 ; i<num ; i++){
             if(array[i]==z){
-                System.out.println("Se encontro "+z+" en la posicion "+i);
+                System.out.println("Se encontro "+z+" en la posicion "+(i+1));
                 return;
             }
-            i++;
             if(i+1==num){
                 System.out.println("El numero no se encuentra en el arreglo");
             }
