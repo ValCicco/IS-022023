@@ -20,6 +20,7 @@ public class practica07_a {
             }
             
         }
+        sc.close();
     }
 
     public static void main(String[] args) throws Exception {
@@ -57,7 +58,9 @@ public class practica07_a {
             System.out.println("El numero SI esta en el arreglo");
         }
         
-
+        sc.close();
+        rellenar.close();
+        z.close();
     }
 
 }
