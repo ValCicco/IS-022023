@@ -249,8 +249,6 @@ public class practica07_c extends JFrame {
                 if(e.getSource()== General){
                     individualReport.setVisible(false);
                     generalReport.setVisible(true);
-                    generalReport.add(new JLabel("probemos"));
-
                     General.add(botonContinuar);
                     General.add(botonTotalizar);
                     botonContinuar.setBounds(200, 400, 100, 35);
@@ -269,7 +267,6 @@ public class practica07_c extends JFrame {
 
     }
     public static void buttonClickContinuar(ActionEvent e, JFrame IReporte){
-        //IReporte.setDefaultCloseOperation(JFrame.ABORT);
         IReporte.setVisible(false);
     }
     
