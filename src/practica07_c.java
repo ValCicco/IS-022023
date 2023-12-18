@@ -11,10 +11,8 @@ import java.util.Scanner;
 
 public class practica07_c extends JFrame {
     static String[] desc=new String[100], nf=new String[100], ci=new String[100], fecha=new String[100];
-    static int[] ct=new int[100], dd=new int[100], mm=new int[100], aaaa=new int[100];
-    static float[] mu=new float[100];
-    static  Scanner sc = new Scanner(System.in);
-    static Scanner sc2 = new Scanner(System.in);
+    static String[] ct=new String[100], dd=new String[100], mm=new String[100], aaaa=new String[100];
+    static String[] mu=new String[100];
     static int contador_equipo=-1;
     static int  equipos=0;
     static float total_bs=0;
@@ -40,7 +38,7 @@ public class practica07_c extends JFrame {
     public static JLabel DescripcionLabel = new JLabel("Descripcion: ");
     public static JLabel CantidadLabel = new JLabel("Cantidad: ");
     public static JLabel CostoUniLabel = new JLabel("Costo Unitario (Bs.): ");
-    public static JLabel FechaAdquiLabel = new JLabel("Fecha de adquisicion: dd/mm/aaaa");
+    public static JLabel FechaAdquiLabel = new JLabel("<html>Fecha de adquisicion:<br/>dd/mm/aaaa</html>");
     public static JLabel numFacturaLabel = new JLabel("Nro. de Factura: ");
     public static JLabel ci_responsableLabel = new JLabel("C.I. del Responsable de equipo: ");
     
@@ -51,46 +49,27 @@ public class practica07_c extends JFrame {
     public static JButton botonSalir = new JButton("Salir");
 
     public static void AgregarData(PrintWriter file){
+        contador_equipo++;
         desc[contador_equipo]= DescripcionField.getText();
         file.println(desc[contador_equipo]);
 
-        System.out.print("Cantidad: ");
-        ct[contador_equipo]=sc.nextInt();
+        ct[contador_equipo]=CantidadField.getText();
         file.println(ct[contador_equipo]);
 
-        System.out.print("Costo Unitario (Bs): ");
-        mu[contador_equipo]=sc.nextFloat();
+        mu[contador_equipo]=CostoUniField.getText();
         file.println(mu[contador_equipo]);
 
-        System.out.print("Fecha de adquisicion: ");
-        fecha[contador_equipo]= sc2.nextLine();
+        fecha[contador_equipo]= FechaAdquField.getText();
         file.println(fecha[contador_equipo]);
 
-        String dia=fecha[contador_equipo].substring(0, 2);
-        String mes=fecha[contador_equipo].substring(3, 5);
-        String anio=fecha[contador_equipo].substring(6, 10);
-        dd[contador_equipo]=Integer.parseInt(dia);
-        while(dd[contador_equipo]<0 || dd[contador_equipo]>31){
-            System.out.println("Error al ingresar el dia, ingrese de nuevo: ");
-            dd[contador_equipo]=sc.nextInt();
-        }
-        mm[contador_equipo]=Integer.parseInt(mes);
-        while(mm[contador_equipo]<0 || mm[contador_equipo]>12){
-            System.out.println("Error al ingresar el mes, ingrese de nuevo: ");
-            mm[contador_equipo]=sc.nextInt();
-        }
-        aaaa[contador_equipo]=Integer.parseInt(anio);
-        while(aaaa[contador_equipo]<1968 || aaaa[contador_equipo]>2024){
-            System.out.println("Error al ingresar el anio, ingrese de nuevo: ");
-            aaaa[contador_equipo]=sc.nextInt();
-        }
-        
-        System.out.print("Nro. de Factura: ");
-        nf[contador_equipo]= sc2.nextLine();
+        dd[contador_equipo]=fecha[contador_equipo].substring(0, 2);
+        mm[contador_equipo]=fecha[contador_equipo].substring(3, 5);
+        aaaa[contador_equipo]=fecha[contador_equipo].substring(6, 10);
+       
+        nf[contador_equipo]= numFacturaField.getText();
         file.println(nf[contador_equipo]);
 
-        System.out.print("C.I. del Responsable del Equipo: ");
-        ci[contador_equipo]=sc2.nextLine();
+        ci[contador_equipo]=ci_responsableField.getText();
         file.println(ci[contador_equipo]);
         
 
@@ -139,13 +118,23 @@ public class practica07_c extends JFrame {
         ci_responsableField.setBounds(200, 170, 120, 25);
         
         contenedor_ICentro.add(botonRegistrarData);
-        botonRegistrarData.setBounds(335, 345, 100, 25);
+        botonRegistrarData.setBounds(300, 345, 100, 25);
+        botonRegistrarData.setFont(new Font(null, Font.PLAIN, 10));
         contenedor_ICentro.add(botonGenerarReporte);
-        botonGenerarReporte.setBounds(445, 345, 108, 25);
+        botonGenerarReporte.setBounds(410, 345, 145, 25);
+        botonGenerarReporte.setFont(new Font(null, Font.PLAIN, 10));
         contenedor_ICentro.add(botonSalir);
         botonSalir.setBounds(565, 345, 60, 25);
-        contenedor_ICentro.setLayout(new FlowLayout());
-        //AgregarData(file);
+        botonSalir.setFont(new Font(null, Font.PLAIN, 10));
+
+        contenedor_ICentro.setLayout(null);
+        
+
+        botonRegistrarData.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                buttonClickRegistrarData(e,file);
+            }
+        });
 
         botonGenerarReporte.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
@@ -170,7 +159,8 @@ public class practica07_c extends JFrame {
             
             for(int i=0 ; i<=contador_equipo ; i++){
                 if(ci_ventana.equals(ci[i])){
-                    total_bs=total_bs+mu[i];
+                    float costo=Integer.parseInt(mu[i]);
+                    total_bs=total_bs+costo;
                     equipos++;
                 }
             }
@@ -180,25 +170,30 @@ public class practica07_c extends JFrame {
         //IReporte.setDefaultCloseOperation(JFrame.ABORT);
         System.exit(0);
     }
+    public static void buttonClickRegistrarData(ActionEvent e, PrintWriter file){
+        AgregarData(file);
+    }
     public static void buttonClickGenerarReporte(ActionEvent e){
         JFrame IReporte = new JFrame("Reporte del Inventario del Centro de Investigacion");
         IReporte.setSize(660,450);
         IReporte.setVisible(true);
+        IReporte.setLayout(null); 
         JLabel tipo_reportLabel = new JLabel("Tipo reporte: ");
         tipo_reportLabel.setBounds(10, 10, 200, 25);
+        tipo_reportLabel.setLayout(null); 
         IReporte.add(tipo_reportLabel);
 
         JLabel totalizacion= new JLabel("   Totalizacion");
-        
+        totalizacion.setLayout(null); 
         JLabel equipos= new JLabel("   equipos");
-        
+        equipos.setLayout(null); 
         JLabel Bs= new JLabel("   Bs");
+        Bs.setLayout(null); 
        
-        
         IReporte.getContentPane().add(General);
         IReporte.getContentPane().add(Individual);
         
-        IReporte.setLayout(null); 
+        
 
         JPanel individualReport = new JPanel();
        // individualReport.setBounds(50, 100, 200, 25);
@@ -208,6 +203,7 @@ public class practica07_c extends JFrame {
         
 
         JPanel generalReport = new JPanel();
+        generalReport.setLayout(null); 
         IReporte.add(generalReport);
         //generalReport.setBounds(150,100,200,25);
         
@@ -215,9 +211,10 @@ public class practica07_c extends JFrame {
         
 
         ButtonGroup grupo = new ButtonGroup();
+        Individual.setLayout(null); 
         Individual.setBounds(10, 30, 100, 25);
         grupo.add(Individual);
-        
+        General.setLayout(null); 
         General.setBounds(120, 30, 100, 25);
         grupo.add(General);
         
@@ -227,10 +224,10 @@ public class practica07_c extends JFrame {
                 if(e.getSource() == Individual){
                     individualReport.setVisible(true);
                     generalReport.setVisible(false);
-                    Individual.add(ci_responsableLabel);
-                    Individual.add(ci_responsableField);
-                    ci_responsableLabel.setBounds(10,50,100,25);
-                    ci_responsableField.setBounds(100,50,100,25);
+                    Individual.add(ciLabel);
+                    Individual.add(ci_resField);
+                    ciLabel.setBounds(10,50,100,25);
+                    ci_resField.setBounds(100,50,100,25);
                     
                     
                     individualReport.add(totalizacion);
